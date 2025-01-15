@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Air Measurements</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="jumbotron">
+    <h1 style="text-align: center;">Measurements</h1>
+</div>
+<div class="container-fluid">
+    <table class="table" style="text-align: center;">
+        <thead class="thead text-white">
+        <tr class="row" style="background-color: rgb(69, 74, 88);">
+            <th class="col-md-1">ID</th>
+            <th class="col-md-2">Room</th>
+            <th class="col-md-2">CO2</th>
+            <th class="col-md-2">Humidity</th>
+            <th class="col-md-2">Temperature</th>
+            <th class="col-md-3">Timestamp</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="row" th:each="measurement : ${measurements}">
+            <td class="col-md-1" th:text="${measurement.getId()}">1</td>
+            <td class="col-md-2" th:text="${measurement.getRoom()}">Aula Magna</td>
+            <td class="col-md-2" th:text="${measurement.getCo2()}">400</td>
+            <td class="col-md-2" th:text="${measurement.getUmid()}">47.6</td>
+            <td class="col-md-2" th:text="${measurement.getTemp()}">21.8</td>
+            <td class="col-md-3" th:text="${measurement.getTimestamp()}">2020-01-01 12:00:00</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script>
+    setInterval(function() {
+        location.reload();
+    }, 5000);
+</script>
+</body>
+</html>
